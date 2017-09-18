@@ -4,7 +4,7 @@ public class ee {
     
     public static void main (String [] args) {
         
-        double x = 10;
+        double x = 0;
         if(x==0) System.out.println('Y');
         
         if(x==0) {System.out.println("0입니다");}   

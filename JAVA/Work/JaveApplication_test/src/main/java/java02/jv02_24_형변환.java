@@ -16,10 +16,10 @@ public class jv02_24_형변환 {
         System.out.println(result2);   
         
         
-        int result3 = "1" + '2';
+        int result3 = Integer.parseInt("1") + '2';
         System.out.println(result3);   
         
-        int result4 = fals + true;
+        int result4 = ((false)?1:0) + ((true)?1:0) ;
         System.out.println(result4);   
         
         
