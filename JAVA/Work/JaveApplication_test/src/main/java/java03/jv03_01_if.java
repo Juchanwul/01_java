@@ -9,7 +9,10 @@ public class jv03_01_if {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("점수를 입력하세요.");
         
+        
         int grade = keyboard.nextInt() ;
+        
+        keyboard.close();
         
         if (grade >= 60) 
         {   
