@@ -2,19 +2,26 @@ package java04;
 
 import java.util.Scanner;
 
-public class ex04_11_구구단 {
+public class ex04_13_구구단 {
     
     public static void main(String[] args) {
         
         Scanner keyboard = new Scanner(System.in);
         System.out.print("시작 단수를 입력하세요 : ");
-        int i = keyboard.nextInt();
+        int a = keyboard.nextInt();
         System.out.print("종료 단수를 입력하세요 : ");
-        int k = keyboard.nextInt();
+        int b = keyboard.nextInt();
         
+        int i = 0;
         int r = 0;
         
-        for (i = i; i <= k; i++) {
+        if (a > b) {
+            i = b;
+            b = a;
+            a = i;
+        }
+        
+        for (i = a; i <= b; i++) {
             
             for (int j = 1; j <= 9; j++) {
                 r = i * j;

@@ -2,7 +2,7 @@ package java04;
 
 import java.util.Scanner;
 
-public class ex04_11_구구단 {
+public class ex04_12_구구단 {
     
     public static void main(String[] args) {
         
@@ -11,8 +11,10 @@ public class ex04_11_구구단 {
         int i = keyboard.nextInt();
         System.out.print("종료 단수를 입력하세요 : ");
         int k = keyboard.nextInt();
-        
+    
         int r = 0;
+        
+        
         
         for (i = i; i <= k; i++) {
             
