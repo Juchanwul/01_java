@@ -8,11 +8,11 @@ public class ex03_10_LowerUpper {
         
         Scanner keyboard = new Scanner(System.in);
         System.out.println("ch : " );
-        int c = Integer.toString();
+        int c = keyboard.nextInt();
+        String s = Integer.toString(c);
         
         
-        
-        if (c =  )
+      
        
     }
     
