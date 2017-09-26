@@ -6,11 +6,14 @@ public class ex06_03_isNumber {
     
     public static void main(String[]args){
         
+        boolean b2= false; 
+        
         Scanner keyboard = new Scanner(System.in);
         System.out.print("문자열을 입력하세요. ");
-        String str = keyboard.next();
-        isNumber (str);
-        System.out.println(str);
+        String str = keyboard.next();  
+        isNumber(str);
+        System.out.println(isNumber(str));
+
     }
     
     
