@@ -42,6 +42,8 @@ public class ex07_03_배열로최대최소구하기 {
             }
             
         }
+        
+        
         System.out.print("배열 후 정렬 : ");
         for (int i = 0; i <= array.length - 1; i++) {
             
