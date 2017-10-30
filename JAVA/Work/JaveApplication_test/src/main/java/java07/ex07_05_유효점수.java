@@ -51,7 +51,7 @@ public class ex07_05_유효점수 {
         }
         System.out.println("합계 : " + sum);
         
-        System.out.println("평균 : " + avr);
+        System.out.printf("평균 : %.2f" , avr);
         
     }
     
