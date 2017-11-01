@@ -26,10 +26,7 @@ public class ProductInfo2 {
             
         }
         // 출력
-        for (int i = 0; i <= prods.length - 1; i++) {
-            System.out.println(prods[i].toString());
-            
-        }
+        
         
     }
     
