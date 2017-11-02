@@ -328,7 +328,7 @@ public class frmBooks extends JFrame {
             tempObject[2] = obj.getPublisher();
             tempObject[3] = obj.getYear();
             tempObject[4] = obj.getPrice();
-            // tempObject[5] = obj.getUse_yn()
+            // tempObject[5] = obj.getUse_yn();
             tempObject[6] = obj.getAuthid();
             
             model.addRow(tempObject);
