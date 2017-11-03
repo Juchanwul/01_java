@@ -26,7 +26,10 @@ public class CompackDisc extends Product {
     @Override
     public String toString() {
         return "CompackDisc [atitle=" + atitle + ", singer=" + singer
-                + ", toString()=" + super.toString() + "]";
+                + ", idnum=" + idnum + ", prod=" + prod + ", producer="
+                + producer + ", price=" + price + ", toString()="
+                + super.toString() + "]";
     }
+
 
 }

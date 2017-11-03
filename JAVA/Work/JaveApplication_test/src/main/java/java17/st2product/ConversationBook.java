@@ -20,9 +20,12 @@ public class ConversationBook extends Book {
 
     @Override
     public String toString() {
-        return "ConversationBook [language=" + language + ", toString()="
-                + super.toString() + "]";
+        return "ConversationBook [language=" + language + ", isbn=" + isbn
+                + ", writer=" + writer + ", title=" + title + ", idnum=" + idnum
+                + ", prod=" + prod + ", producer=" + producer + ", price="
+                + price + ", toString()=" + super.toString() + "]";
     }
+
 
     
     

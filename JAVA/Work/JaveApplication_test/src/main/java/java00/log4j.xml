@@ -62,7 +62,7 @@
 
     <!-- Root Logger -->
     <root>
-        <priority value="debug" />
+        <priority value="debug" /> <!-- priority는 로그 level 설정 -->
         <appender-ref ref="console" />
         <appender-ref ref="rolling" />
     </root>

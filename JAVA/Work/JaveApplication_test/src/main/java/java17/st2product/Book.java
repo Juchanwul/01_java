@@ -10,7 +10,7 @@ public class Book extends Product {
         return isbn;
     }
     public void setisbn(int isbn) {
-        isbn = isbn;
+        this.isbn = isbn;
     }
     public String getwriter() {
         return writer;
@@ -32,7 +32,10 @@ public class Book extends Product {
     @Override
     public String toString() {
         return "Book [isbn=" + isbn + ", writer=" + writer + ", title=" + title
-                + ", toString()=" + super.toString() + "]";
+                + ", idnum=" + idnum + ", prod=" + prod + ", producer="
+                + producer + ", price=" + price + ", toString()="
+                + super.toString() + "]";
     }
+
     
 }
