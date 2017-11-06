@@ -19,15 +19,15 @@ public class TestOper2 {
     @Test
     public void testMinus() {
         Oper op = new Oper(5,5);
-        int  rs = op.minus();
-        assertEquals(0, rs);
+        int  r = op.minus();
+        assertEquals(0, r);
     }
     
     @Test
     public void testMul(){
         Oper op = new Oper(5,5);
-        int rs = op.mul();
-        assertEquals(25, rs);
+        int r = op.mul();
+        assertEquals(25, r);
     }
     
     
@@ -35,8 +35,8 @@ public class TestOper2 {
     @Test
     public void testDiv(){
         Oper op = new Oper(5,5);
-        double rs = op.div();
-        assertEquals(1, rs);
+        double r = op.div();
+        assertEquals(1.0, r, 0.01);
     }
     
 }
