@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class MyUnit {
     
-    public String concate(String s, String s2) {
-        
+    public String concate(String s, String s2) {        
         return s + s2;
         
     }
