@@ -87,6 +87,10 @@ dependencies {
     // mysql 라이브러리
     compile 'mysql:mysql-connector-java:5.1.38'
     
+    
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
+    
+    
 
     // mybatis 라이브러리
     compile 'org.mybatis:mybatis:3.2.8'
