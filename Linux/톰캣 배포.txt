@@ -1,0 +1,17 @@
+--- git에서 repository 생성
+
+--- gradle 파일 업로드
+
+--- putty에서 git clone (url)
+tester1@ubuntu:~$ git clone https://github.com/Juchanwul/mytest.git
+
+--- git pull
+tester1@ubuntu:~/mytest$ git pull
+
+--- gradle 설치 & 빌드
+tester1@ubuntu:~/mytest$ gradle clean
+tester1@ubuntu:~/mytest$ gradle clean build
+
+--- mytest/build/libs 의 ROOT-20171115.war 파일 카피
+tester1@ubuntu:~/mytest/build/libs$ cp ROOT-20171115.war /usr/local/tomcat8/webapps/ROOT.war
+
