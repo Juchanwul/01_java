@@ -44,7 +44,7 @@ public class DaoAuth implements IAuth {
         try {
             
             // SQL 문장
-            String query = "select max(authid) frpm auth";
+            String query = "select max(authid) as authid from auth";
             
             // 문장 객체 생성
             java.sql.PreparedStatement stmt = conn.prepareStatement(query);
@@ -143,6 +143,9 @@ public class DaoAuth implements IAuth {
             if (!auth.getName().isEmpty()) {
                 query += " and name = ? \n ";
             }
+            if (!auth.getBirth().isEmpty()){
+            	query += " and birth = ? \n ";
+            }
             
             // 문장 객체 생성
             java.sql.PreparedStatement stmt = conn.prepareStatement(query);
@@ -152,6 +155,9 @@ public class DaoAuth implements IAuth {
             }
             if (!auth.getName().isEmpty()) {
                 stmt.setString(c++, auth.getName());
+            }
+            if (!auth.getBirth().isEmpty()) {
+                stmt.setString(c++, auth.getBirth());
             }
             
             // SQL 문장 실행
