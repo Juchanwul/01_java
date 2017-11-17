@@ -62,7 +62,7 @@
 
     <!-- Root Logger -->
     <root>
-        <priority value="debug" /> <!-- priority는 로그 level 설정 -->
+        <priority value="debug" /> <!-- priority는 로그 level 설정 error, fatal, info, warn, debug-->
         <appender-ref ref="console" />
         <appender-ref ref="rolling" />
     </root>
