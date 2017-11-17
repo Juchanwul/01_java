@@ -23,6 +23,7 @@ public class jv19_01_ArrayList {
         list.add("MILK"); // 0번방
         list.add("BREAD"); // 1번방
         list.add("BUTTER"); // 2번방
+        
         System.out.println("C: 추가 >> " + list);
         
         /*
@@ -44,7 +45,7 @@ public class jv19_01_ArrayList {
         System.out.println("U: BREAD 를 GRAPE로 수정 >> " + list);
         
         /*
-         * D: 인데스로 삭제. 검색: "자바 arraylist 삭제" 인덱스스를 이용하여 BUTTER 를 삭제
+         * D: 인데스로 삭제. 검색: "자바 arraylist 삭제" 인덱스를 이용하여 BUTTER 를 삭제
          */
         list.remove(3);
         System.out.println("D: BUTTER 를 삭제 >> " + list);
@@ -94,9 +95,6 @@ public class jv19_01_ArrayList {
         Collections.reverse(list);
         System.out.println("S: 내림차순으로 정렬>> " + list.toString());
         
-        
-        
-        
         /*
          * 검색2. APPLE 이 몇개 있나요?
          */
@@ -108,17 +106,14 @@ public class jv19_01_ArrayList {
         }
         System.out.println("S: APPLE 개수>> " + count);
         
-        
-//-------------------------------------------------------------------
-        
+        // -------------------------------------------------------------------
         
         /*
-         * ArrayList 배열로 변환하시오. toArray() 사용 
-         * "자바 ArrayList 배열 변환 검색"
+         * ArrayList 배열로 변환하시오. toArray() 사용 "자바 ArrayList 배열 변환 검색"
          */
         String[] array = list.toArray(new String[list.size()]);
         
-//-------------------------------------------------------------------
+        // -------------------------------------------------------------------
         
         /*
          * 변환된 배열을 for 문으로 출력.
@@ -129,7 +124,7 @@ public class jv19_01_ArrayList {
         }
         System.out.println();
         
-//-------------------------------------------------------------------
+        // -------------------------------------------------------------------
         
         /*
          * 변환된 배열을 for each 문으로 출력.
@@ -140,20 +135,17 @@ public class jv19_01_ArrayList {
         }
         System.out.println();
         
-        
         /*
-         * list의 모든 값을 for 문을 사용하여 삭제하시오
-         * list.removeall()---------> 전체삭제
+         * list의 모든 값을 for 문을 사용하여 삭제하시오 list.removeall()---------> 전체삭제
          */
         
         list.removeAll(list);
         
-        for(int i = list.size()-1;i>=0;i--){
+        for (int i = list.size() - 1; i >= 0; i--) {
             list.remove(i);
         }
         
         System.out.println("list의 값을 for 문을 사용하여 삭제 >> " + list);
-        
         
     }
 }
