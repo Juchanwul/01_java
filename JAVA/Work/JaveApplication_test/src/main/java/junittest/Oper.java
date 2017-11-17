@@ -35,20 +35,20 @@ public class Oper {
         this.y = y;
     }
     
-    public int add( ) {
-        return this.x + this.y ;
+    public int add() {
+        return this.x + this.y;
     }
     
-    public int minus( ) {
-        return this.x - this.y ;
+    public int minus() {
+        return this.x - this.y;
     }
     
-    public int mul( ) {
-        return this.x * this.y ;
+    public int mul() {
+        return this.x * this.y;
     }
-
-    public double div( ) {
-        return (double)this.x / (double)this.y ;
+    
+    public double div() {
+        return (double) this.x / (double) this.y;
     }
     
 }
