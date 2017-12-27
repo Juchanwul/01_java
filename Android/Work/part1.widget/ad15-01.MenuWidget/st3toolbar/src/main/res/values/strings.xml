@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">st3Toolbar</string>
+    <string name="action_settings">Settings</string>
+    <string name="btn_title_btn1">상태바 색깔바꾸기</string>
+    <string name="btn_title_btn2">툴바 색깔바꾸기</string>
+    <string name="toolbar_title_main">툴바타이틀</string>
+    <string name="toolbar_title_sub">서브타이틀</string>
+</resources>

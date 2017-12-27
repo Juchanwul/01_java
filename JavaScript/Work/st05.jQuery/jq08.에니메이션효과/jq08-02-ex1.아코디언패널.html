@@ -13,46 +13,49 @@
         dd{ height:300px; background:#D4D0C8; }
         dd p{ text-indent:1em; padding:20px; }
     </style>
-
-    <script src="../jquery-3.1.1.js"></script>
-    <script>
-        $(document).ready(function (e) {
-
-            $('dd').hide();
-            $('dt:first').addClass('selected');
-            $('dd:first').show();
-
-            $('dl > dt').click( function (e) {
-                // 'selected' 를 지운다.
-                // removeClass() 메서드 사용.
-                $('dt').removeClass('selected');
-
-                // click 된 dt, 자기자신에게 selected 를 적용한다.
-                // addClass() 메서드 사용
-                $(this).addClass('selected');
-
-                var youngbrother = $(this).next();
-                youngbrother.siblings('dd').hide();
-
-                if( youngbrother.css('display') === 'none' ){ // 감추어진 상태
-                    youngbrother.slideDown(1000);
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('dd:eq(0)').nextAll('dd').hide();
+            $('dt:eq(0)').addClass('selected');
+            $('dt:eq(0)').click(function(event) {
+                if($(this).hasClass('selected')){
+                    $(this).next().slideToggle();
+                }
+                else{
+                    $('dt').next().hide();
+                    $('dt').removeClass('selected');
                     $(this).addClass('selected');
+                    $(this).next().slideToggle();
                 }
-                else { // 보여지는 상태
-                    youngbrother.slideUp(1000);
-                    $(this).removeClass('selected');
+            });
+            $('dt:eq(1)').click(function(event) {
+                if($(this).hasClass('selected')){
+                    $(this).next().slideToggle();
                 }
-            })
-            .mouseover( function (e) {
-                // over 클래스 추가
-                $(this).addClass('over');
-            })
-            .mouseout( function (e) {
-                // over 클래스 삭제
-                $(this).removeClass('over');
+                else{
+                    $('dt').next().hide();
+                    $('dt').removeClass('selected');
+                    $(this).addClass('selected');
+                    $(this).next().slideToggle();
+                }
+            });
+            $('dt:eq(2)').click(function(event) {
+                if($(this).hasClass('selected')){
+                    $(this).next().slideToggle();
+                }
+                else{
+                    $('dt').next().hide();
+                    $('dt').removeClass('selected');
+                    $(this).addClass('selected');
+                    $(this).next().slideToggle();
+                }
             });
         });
+
     </script>
+
+
 </head>
 <body>
     <dl>
@@ -65,4 +68,11 @@
     </dl>
 </body>
 </html>
+
+
+
+
+
+
+
 

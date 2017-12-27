@@ -23,30 +23,43 @@
         dd{ margin:0; width:695px; height:300px; float:left; background:#D4D0C8; overflow:hidden; }
         dd  p{ width:655px; text-indent:1em; padding:20px; }
     </style>
-    <script src="../jquery-3.1.1.js"></script>
-	<script>
-	    $(document).ready(function () {
-	        $("dd:not(:first)").css("width","0px");
-	        $("dt:first span").addClass("selected");
-	        $("dl dt").click(function(){
-	            if($("+dd",this).css("width")=="0px"){
-	                $("dt:has(.selected) +dd").animate({"width":"0px"});
-	                $("+dd",this).animate({"width":"695px"});
-	                $("dt span").removeClass("selected");
-	                $("span",this).addClass("selected");
-	            }
-	        }).mouseover(function(){
-	            $("span",this).addClass("over");
-	        }).mouseout(function(){
-	            $("span",this).removeClass("over");
-	        });
-	    });
-	</script>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('#step1 span').addClass('selected');
+
+            $('dt span').hover(function() {
+                $(this).addClass('over');
+            }, function() {
+                $(this).removeClass('over');
+            });
+
+            $('dd:gt(0)').width(0);
+
+            $('#step1 span').addClass('selected');
+
+
+            $('dt').click(function(event) {
+                if($(this).children('span').hasClass('selected') == false){
+                    $('.selected').parent().next('dd').animate({width:0});
+                    $(this).next('dd').animate({width:695});
+                    $('.selected').removeClass('selected');
+                    $(this).children('span').addClass('selected');
+                }
+
+            });
+
+        });
+
+    </script>
+
 </head>
 <body>
     <div>
         <dl>
-            <dt id="step1"><span>Step.1</span></dt>
+            <dt id="step1">
+                <span>Step.1</span>
+            </dt>
             <dd><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque urna, molestie id cursus non, bibendum nec magna. Mauris consequat faucibus ante sollicitudin ullamcorper. Proin et felis orci. Nulla vitae diam sit amet felis semper ultricies. Nulla vitae mauris sit amet augue pulvinar pulvinar. Donec tincidunt viverra turpis eget suscipit. Morbi eu lacus iaculis turpis suscipit pretium. Aenean ultricies scelerisque dictum. Phasellus tincidunt, nibh lacinia facilisis aliquam, lacus quam condimentum orci, id lacinia justo odio vel purus. Mauris molestie tortor eu purus facilisis at congue sapien commodo. Sed ac eros vitae odio ultrices mollis nec a lorem. Phasellus sit amet dolor nec tellus consequat ornare sit amet ut ipsum. Vestibulum sagittis, mi sed pulvinar semper, lacus mauris lobortis eros, eu egestas est lectus nec lacus. Donec in lacus quis elit consectetur accumsan sit amet sed tortor. Etiam id vestibulum libero. Nam faucibus tincidunt felis, eu feugiat nibh fringilla vel. Donec adipiscing dictum imperdiet. Nulla ac fringilla neque. Curabitur posuere euismod est vel vehicula. Curabitur quis ligula sit amet quam tempus venenatis.</p></dd>
             <dt id="step2"><span>Step.2</span></dt>
             <dd><p>Integer rhoncus felis mauris. Donec massa nisi, posuere vel posuere vel, suscipit sed magna. Sed congue scelerisque odio, faucibus tempor nisl posuere condimentum. In eu tellus vitae elit consequat pretium. Maecenas nec ultrices dolor. Curabitur eu pulvinar turpis. Aenean vel tortor justo, id dapibus velit. Mauris pulvinar massa sit amet erat mollis sit amet ornare tellus aliquet. Quisque ullamcorper elementum libero, ut vehicula neque placerat nec. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Morbi et ante turpis, et fringilla tortor. In hac habitasse platea dictumst. Proin eros urna, sagittis vitae tristique et, ullamcorper ac leo. Donec elementum arcu tortor. Praesent tincidunt dui in est adipiscing ac lobortis lorem porttitor. Nullam et dui elit. Vivamus hendrerit vestibulum enim, quis lobortis erat viverra vitae. Donec at pellentesque mi. Mauris lobortis libero ac metus ultricies accumsan. </p></dd>
@@ -56,3 +69,10 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

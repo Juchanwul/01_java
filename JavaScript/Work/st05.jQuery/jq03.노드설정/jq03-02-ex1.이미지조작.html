@@ -14,6 +14,7 @@
                 $(this).attr('alt'  , 'im2.jpg');
             });
             $("#img3").click( function(e){
+                //메서드 체인
                 $(this).attr('src'  , 'images/im3.jpg')
                        .attr('title', 'im3.jpg')
                        .attr('alt'  , 'im3.jpg');
@@ -34,7 +35,7 @@
                 });
             });
             $("#img6").click( function(e){
-                $(this).removeAttr('src');
+                $(this).removeAttr('src alt title');
 
             });
         });

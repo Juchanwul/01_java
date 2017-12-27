@@ -7,50 +7,37 @@
         td { border:1px solid #AAA; width:25px; height:25px; }
         div { background : #FFF; margin:5px; width:100%; }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        MYAPP = {};
-
-        // 초기화 함수
-        MYAPP.init = function () {
-            $('*').css('background','');
-        };
-
-        $(document).ready( function(event) {
-            $('#selector').click(function(event){
-                MYAPP.init();
-                $('li > ul').css('background','red');
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('#selector').click(function(event) {
+                $('li > ul').css('backgroundColor', 'red');
             });
-            $('#method'  ).click(function(event){
-                MYAPP.init();
-                $('li').children('ul').css('background','pink');
+            $('#method').click(function(event) {
+                $('li').children('ul').css('backgroundColor', 'pink');
             });
-            $('#eq2'     ).click(function(event){
-                MYAPP.init(); // 초기화
-                $('div > ul > li:eq(2)').text('eq text').css('background', '#AAA');
+            $('#eq2').click(function(event) {
+                $('div > ul > li:eq(2)').css('backgroundColor', 'gray');
             });
-            $('#eq2method'     ).click(function(event){
-                MYAPP.init(); // 초기화
-                $('div > ul').children('li').eq(2).text('eq text').css('background', '#AAA');
+            $('#eq2method').click(function(event) {
+                $('div').children('ul').children('li').eq(2).css('backgroundColor', 'gray');
             });
-            $('#first'   ).click(function(event){
-                MYAPP.init(); // 초기화
-                $('div > ul > li:first').text('first text').css('background', '#AAA');
+            $('#first').click(function(event) {
+                $('div > ul > li:first').css('backgroundColor', 'gray');
             });
-            $('#firstmethod'   ).click(function(event){
-                MYAPP.init(); // 초기화
-                $('div > ul').children('li').first().text('first text').css('background', '#AAA');
+            $('#firstmethod').click(function(event) {
+                $('div').children('ul').children('li').first().css('backgroundColor', 'gray');
             });
-            $('#last'    ).click(function(event){
-                MYAPP.init(); // 초기화
-                $('div > ul > li:last').text('last text').css('background', '#AAA');
+            $('#last').click(function(event) {
+                $('div > ul > li:last').css('backgroundColor', 'gray');
             });
-            $('#lastmethod'    ).click(function(event){
-                MYAPP.init(); // 초기화
-                $('div > ul').children('li').last().text('last text').css('background', '#AAA');
+            $('#lastmethod').click(function(event) {
+                $('div').children('ul').children('li').last().css('backgroundColor', 'gray');
             });
         });
+
     </script>
+
 </head>
 <body>
     <div>
@@ -82,3 +69,10 @@
     <hr>
 </body>
 </html>
+
+
+
+
+
+
+

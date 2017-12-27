@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">초간단 계산기</string>
+    <string name="strAdd">더하기</string>
+    <string name="strMinus">빼기</string>
+    <string name="strMul">곱하기</string>
+    <string name="strDiv">나누기</string>
+    <string name="strMod">나머지 값</string>
+    <string name="strResult">계산 결과 :</string>
+</resources>

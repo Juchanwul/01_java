@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:ap34a="http://schemas.android.com/apk/res/android"
+              ap34a:layout_width="match_parent"
+              ap34a:layout_height="match_parent"
+              ap34a:orientation="vertical"
+    >
+    
+    <Button
+        ap34a:id="@+id/button1"
+        ap34a:layout_width="match_parent"
+        ap34a:layout_height="wrap_content"
+        ap34a:layout_weight="1"
+        ap34a:text="Radio버튼"/>
+    
+    <Button
+        ap34a:id="@+id/button2"
+        ap34a:layout_width="match_parent"
+        ap34a:layout_height="wrap_content"
+        ap34a:layout_weight="1"
+        ap34a:text="Width버튼"/>
+    
+    <Button
+        ap34a:id="@+id/button3"
+        ap34a:layout_width="match_parent"
+        ap34a:layout_height="wrap_content"
+        ap34a:layout_weight="1"
+        ap34a:text="Height버튼"/>
+    
+    <Button
+        ap34a:id="@+id/button4"
+        ap34a:layout_width="match_parent"
+        ap34a:layout_height="wrap_content"
+        ap34a:layout_weight="1"
+        ap34a:text="Color버튼"/>
+    
+    <Button
+        ap34a:id="@+id/button5"
+        ap34a:layout_width="match_parent"
+        ap34a:layout_height="wrap_content"
+        ap34a:layout_weight="1"
+        ap34a:text="Visible"/>
+    
+    <Button
+        ap34a:id="@+id/button6"
+        ap34a:layout_width="match_parent"
+        ap34a:layout_height="wrap_content"
+        ap34a:layout_weight="1"
+        ap34a:text="Margin"/>
+    
+    <Button
+        ap34a:id="@+id/button7"
+        ap34a:layout_width="match_parent"
+        ap34a:layout_height="wrap_content"
+        ap34a:layout_weight="1"
+        ap34a:text="Padding"/>
+</LinearLayout>
+

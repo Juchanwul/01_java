@@ -5,11 +5,8 @@ import static org.junit.Assert.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.ibatis.annotations.Results;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.ui.Model;
-
 import java23.jdbc.ModelAuth;
 import java23.jdbc.ServiceAuth;
 

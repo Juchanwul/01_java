@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	<script>
-	    // 리터럴을 이용한 객체 생성
-	    var Dog = {
-	        name  : 'Fido',
-	        weight : 40,
-	        breed : 'Mixed',
-	        loves : ['walks', 'fetching balls']
-	    };
-
-	    for( var val in Dog ){
-	        console.log( val, Dog[val] );
+    <script type="text/javascript">
+        var dog = {
+            name : 'Fido',
+            weight : 40,
+            breed : 'Mixed',
+            loves : ['Walks', 'fetching balls']
+        };
+        console.log(typeof dog, dog);
+        for (var i in dog) {
+            console.log(dog[i]);
         }
-        
-	</script>
+    </script>
+
 </head>
 <body>
 
 </body>
 </html>
+
+

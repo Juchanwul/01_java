@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ReservationApp</string>
+    <string name="start">예약시작</string>
+    <string name="timeset">시간 설정</string>
+    <string name="end">예약 완료</string>
+    <string name="reservation">예약하신 날짜는 00 00시 00분 입니다.</string>
+    <string name="dateset">날짜 설정(캘린더뷰)</string>
+</resources>

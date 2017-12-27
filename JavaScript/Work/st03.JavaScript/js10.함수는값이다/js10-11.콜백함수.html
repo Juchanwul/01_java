@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-        // 페이지 로딩되고 호출되는 콜백 함수
-        window.onload = function () {
-            var mesg = 'welcome!!!';
-            console.log( mesg );
-            alert( mesg );
+    <script type="text/javascript">
+        var alarm = function (min, callback) {
+            var isCall = false;
+            setInterval( function () {
+                var date = new Date();
+                var nowMin = date.getMinutes();
+                if (nowMin == min && !isCall){
+                    isCall = true;
+                    callback(nowMin);
+                }
+            }, 1000);
         }
+
+        window.onload = function () {
+            var curMin = new Date().getMinutes();
+            alarm(curMin+1, function (min) {
+                var msg = "현재는'"+min+"'분입니다.";
+                window.alert(msg);
+            });
+        };
     </script>
 </head>
 <body>
 
-<script>
-    console.log( 'before </body>' );
-</script>
+
 </body>
 </html>
+
+

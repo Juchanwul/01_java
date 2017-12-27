@@ -14,52 +14,42 @@
         .white  { background: white;  }
         .gray   { background: gray;   }
     </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-        $(document).ready( function() {
-
-            // value attribute CRUD
-            $('#value_read'  ).click( function(event) {
-                var val = $('#text').val();
-                window.alert( val );
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('#value_read').click(function(event) {
+                var text = $('#text').val();
+                alert(text);
             });
-            $('#value_create').click( function(event) {
-                var val = $('#text').val();
-                var str = val + '> 추가';
-                $('#text').val( str );
+            $('#value_create').click(function(event) {
+                var text = $('#text').val() + ' > 추가';
+                $('#text').val(text);
             });
-            $('#value_update').click( function(event) {
-                var val = $('#value_update').text();
-                $('#text').val( val );
+            $('#value_update').click(function(event) {
+                var text = $(this).text();
+                $('#text').val(text);
             });
-            $('#value_delete').click( function(event) {
-                $('#text').val( '' );
+            $('#value_delete').click(function(event) {
+                $('#text').val('');
             });
 
-
-            // text node CRUD
-            $('#prop_read').click( function(evenet){
-                var result = $('input[name="aaa"]').prop('checked');
-                alert( result );
+            $('#prop_read').click(function(event) {
+                var rs = $("input[name='aaa']").prop('checked');
+                alert(rs);
             });
-            $("#prop_create" ).click( function(e) {
-                $('input[name="bbb"]').attr('checked', true);
+            $('#prop_create').click(function(event) {
+                $("input[name='bbb']").prop('checked', true);
             });
-            $("#prop_update" ).click( function(e) {
-
-                if( $('input[name="aaa"]').is(":checked") === true) {
-                    $('input[name="aaa"]').attr('checked', false);
-                }
-                else {
-                    $('input[name="aaa"]').attr('checked', true);
-                }
-
+            $('#prop_update').click(function(event) {
+                $("input[name='aaa']").prop('checked', false);
             });
-            $("#prop_delete" ).click( function(e) {
-                $('input[name="ccc"]').removeAttr('disabled');
+            $('#prop_delete').click(function(event) {
+                $("input[name='ccc']").prop('disabled', false);
             });
         });
+
     </script>
+
 </head>
 <body>
 
@@ -68,10 +58,10 @@
     <hr>
 
     <div>
-        <h3>value attribute CRUD</h3>
+        <h3>value attribute CRUD : val()</h3>
         <input id="text" type="text" value="값 없음" size="50" placeholder='값을 입력하세요'>
         <br>
-        <button id="value_read"  >value 읽기(R)</button>
+        <button id="value_read" >value 읽기(R)</button>
         <button id="value_create">value 추가(C)</button>
         <button id="value_update">value 수정(U)</button>
         <button id="value_delete">value 삭제(D)</button>
@@ -80,10 +70,10 @@
     <hr>
 
     <div>
-        <h3>프로퍼티 CRUD</h3>
-        <input type='checkbox' name='aaa' checked />
-        <input type='radio'    name='bbb' value='aaaa1' />
-        <input type='text'     name='ccc' value='aaaa1' disabled />
+        <h3>프로퍼티 CRUD : prop()</h3>
+        <input id="c" type='checkbox' name='aaa' checked />
+        <input id="r" type='radio'   name='bbb' value='aaaa1' />
+        <input id="t" type='text'   name='ccc' value='aaaa1' disabled />
         <br>
         <button id="prop_read"  >checkbox checked 프러퍼티 읽기(R)</button>
         <button id="prop_create">radio에 checked 프러퍼티 추가(C)</button>
@@ -93,3 +83,10 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

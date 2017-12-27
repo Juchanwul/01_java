@@ -6,163 +6,50 @@
     <style>
         #container div, .div { margin: 5px; border: 2px red solid;  background: #ccff0e; }
         span { margin: 10px; border: 2px red solid;  background: #ffb42e; color: blue; }
-        .after { background: pink }
+        .after { background: pink ;}
         .selected {border: 4px blue solid !important; }
+
     </style>
-    <script src="../jquery-3.1.1.js"><!-- jquery 임포트 --></script>
-    <script>
-        var MYAPP = {};
-
-        MYAPP.init = function(tags) {
-            var styles = {'visibility' : '',
-                'border' : '',
-                'color' : ''
-            };
-
-            $('*').removeAttr( 'style' );
-            $('#container').find().removeClass();
-        };
-
-        MYAPP.blink = function(tags) {
-            clearInterval(MYAPP.timer);
-
-            $(MYAPP.tags).each(function(){ $(this).css('visibility' , '' ) });
-            MYAPP.tags = tags;
-            MYAPP.timer = setInterval(function(){
-                $(MYAPP.tags).each(function(){
-                    $(this).css('visibility' , $(this).css('visibility') === 'hidden' ? '' : 'hidden')
-                });
-            }, 500);
-        };
-		MYAPP.printTagsName = function( $result ){
-
-                $("#result").text( $result.get().reverse().join(", "));
-        };
-
-        $(document).ready(function () {
-            $('input.parents').click( function(event) {
-
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.parents();
-                $result.css("border", "2px dotted black");
-                MYAPP.blink( $center );
-
-				MYAPP.printTagsName( $result );
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('.parents').click(function(event) {
+                $('#center').parents().css('border', '2px blue dotted');
             });
-            $('input.parent').click( function(event) {
-
-                MYAPP.init();
-
-                var result = [];
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.parent();
-                $result.css("border", "2px dotted black");
-                MYAPP.blink( $center );
-
-				MYAPP.printTagsName($result);
+            $('.parent').click(function(event) {
+                $('#center').parent().css('border', '2px blue dotted');
             });
-            $('input.first').click( function(event) {
-
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result =  $center.parent().children().first();
-                $result.addClass("after");
-                MYAPP.blink( $result );
-
-				MYAPP.printTagsName( $result );
+            $('.first').click(function(event) {
+                $('#center').parent().children().first().css('border', '2px blue dotted');
             });
-            $('input.next').click( function(event) {
-
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.next();
-                $result.addClass("after");
-                MYAPP.blink( $result );
-
-				MYAPP.printTagsName( $result );
+            $('.prevAll').click(function(event) {
+                $('#center').prevAll().css('border', '2px blue dotted');
             });
-            $('input.nextAll').click( function(event) {
-
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.nextAll();
-                $result.addClass("after");
-                MYAPP.blink( $result );
-
-				MYAPP.printTagsName( $result );
+            $('.prev').click(function(event) {
+                $('#center').prev().css('border', '2px blue dotted');
             });
-            $('input.last').click( function(event) {
-
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.parent().children().last();
-                $result.addClass("after");
-                MYAPP.blink( $result );
-
-				MYAPP.printTagsName( $result );
+            $('.next').click(function(event) {
+                $('#center').next().css('border', '2px blue dotted');
             });
-            $('input.children').click( function(event) {
-
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.children();
-                $reslut.addClass("after").css("color", "red");
-                MYAPP.blink( $result );
-
-				MYAPP.printTagsName( $result );
+            $('.nextAll').click(function(event) {
+                $('#center').nextAll().css('border', '2px blue dotted');
             });
-            $('input.prev').click( function(event) {
-
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.prev();
-                $result.addClass("after");
-                MYAPP.blink( $result );
-
-				MYAPP.printTagsName( $result );
+            $('.last').click(function(event) {
+                $('#center').parent().children().last().css('border', '2px blue dotted');
             });
-            $('input.prevAll').click( function(event) {
-
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.prevAll();
-                $result.addClass("after");
-                MYAPP.blink( $result );
-
-				MYAPP.printTagsName( $result );
+            $('.siblings').click(function(event) {
+                $('#center').siblings().css('border', '2px blue dotted');
             });
-            $('input.siblings').click( function(event) {
+            $('.children').click(function(event) {
+                $('#center').children().css('border', '2px blue dotted');
+                $('#center').children('div').css('border', '2px pink dotted');
 
-                MYAPP.init();
-
-                var $center = $("#center");
-                $center.addClass("selected");
-                var $result = $center.siblings() ;
-                MYAPP.blink( $result );
-
-				MYAPP.printTagsName( $result );
+                $('#center').children('.middle').css('border', '2px pink dotted');
             });
         });
 
     </script>
+
 </head>
 <body>
     <p>부모, 형제, 자식 노드</p>
@@ -178,7 +65,7 @@
                 <span id="second" class="middle">
                     sibling <span id="child">child</span>
                 </span>
-                <span id="third" class="middle">third</span>
+                <div id="third" class="middle">third</div>
                 <span id="fourth" class="middle">fourth</span>
                 <span id="fifth" class="middle">fifth</span>
                 <span id="sixth">sixth</span>
@@ -211,3 +98,10 @@
     <div id="result">&nbsp;</div>
 </body>
 </html>
+
+
+
+
+
+
+

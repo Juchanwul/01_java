@@ -10,8 +10,6 @@ import javax.jws.WebParam.Mode;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.mysql.jdbc.PreparedStatement;
-
 import java23.jdbc.DBConnect;
 import java23.jdbc.DaoBook;
 import java23.jdbc.ModelBook;

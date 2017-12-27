@@ -1,0 +1,21 @@
+import android.content.Intent;  // 직접 타이핑해서 입력해야 함. 자동 import 안됨.
+
+
+Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse( "tel://119" ) );
+startActivity(i); // 새창 띄우기.
+
+
+Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse( "http://www.google.com") );
+startActivity(i); // 새창 띄우기.
+
+
+// 새창 띄우기
+Intent i = new Intent( /* context */ MainActivity.this  ,  /* class 이름 */ LoginActivity.class);
+startActivityForResult(i,REQUEST_CODE_LOGIN);
+
+
+
+Context 얻는 3가지 방법.
+1. getApplicationContext() 
+2. getContext()
+3. MainActivity.this
