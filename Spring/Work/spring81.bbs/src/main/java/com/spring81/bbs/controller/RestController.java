@@ -21,6 +21,10 @@ public class RestController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(RestController.class);
 	
+
+    
+
+    
     @RequestMapping(value = "/insertone", method = {RequestMethod.GET, RequestMethod.POST} )
     @ResponseBody
     public int insertone(Model model, @RequestBody ModelPerson personJson) {
@@ -96,14 +100,16 @@ public class RestController {
     
     @RequestMapping(value = "/updateuserinfo", method = {RequestMethod.POST} )
     @ResponseBody
-    public int updateuserinfo( @RequestBody Map<String, ModelUser> maps) {
-        logger.info("/rest/updateuserinfo"); 
-        ModelUser setValue = maps.get("setValue");
-        ModelUser whereValue = maps.get("whereValue");
+    public int updateuserinfo( @RequestBody Map<String, Object> maps) {
+        logger.info("/rest/updateuserinfo");        
+        
+        ModelUser setValue   = (ModelUser) maps.get("setValue");
+        ModelUser whereValue = (ModelUser) maps.get("whereValue");
+        
         return usersvr.updateUserInfo( setValue, whereValue );
     } 
     
-    @RequestMapping(value = "/updateretire", method = {RequestMethod.GET, RequestMethod.POST} )
+    @RequestMapping(value = "/updateretire", method = {RequestMethod.POST} )
     @ResponseBody
     public int updateretire( @RequestBody ModelUser user) {
         logger.info("/rest/updateretire");        
@@ -142,12 +148,11 @@ public class RestController {
 
     @RequestMapping(value = "/getboardpaging", method = {RequestMethod.GET, RequestMethod.POST} )
     @ResponseBody
-    public List<ModelBoard> getBoardPaging( String boardcd
-                                            , String searchWord
+    public List<ModelBoard> getBoardPaging(   String searchWord
                                             , @RequestParam(defaultValue="0" )  int start
                                             , @RequestParam(defaultValue="10")  int end  ) {
         logger.info("/rest/getBoardPaging");        
-        return boardsvr.getBoardPaging( boardcd, searchWord, start, end  );
+        return boardsvr.getBoardPaging( searchWord, start, end  );
     } 
 
     @RequestMapping(value = "/getboardlist", method = {RequestMethod.GET, RequestMethod.POST} )
@@ -297,22 +302,37 @@ public class RestController {
         return boardsvr.getCommentList( articleno );
     }
 
-    @RequestMapping(value = "/insertcomment", method = {RequestMethod.GET, RequestMethod.POST} )
-    @ResponseBody
-    public int insertComment( @RequestBody ModelComments comment) {
+    @RequestMapping(value = "/insertcomment", method = {RequestMethod.POST} )
+    //@ResponseBody
+    public String insertComment( Model model,  @RequestBody ModelComments comment) {
         logger.info("/rest/insertComment");            
-        return boardsvr.insertComment( comment );
+        
+        // inserted된 pk값 : commentno 
+        int commentNo = boardsvr.insertComment( comment );
+        
+        // comment
+        ModelComments result = boardsvr.getComment(commentNo);
+        
+        model.addAttribute("comment", result);
+        
+        return "board/articleview-commentlistbody";
     }
 
-    @RequestMapping(value = "/updatecomment", method = {RequestMethod.GET, RequestMethod.POST} )
+    @RequestMapping(value = "/updatecomment", method = {RequestMethod.POST} )
     @ResponseBody
-    public int updateComment( @RequestBody ModelComments setValue
-                            , @RequestBody ModelComments whereValue) {
-        logger.info("/rest/updateComment");            
+    public int updateComment( @RequestBody ModelComments comment) {
+        logger.info("/rest/updateComment");          
+        
+        ModelComments setValue = new ModelComments();
+        setValue.setMemo(comment.getMemo());
+        
+        ModelComments whereValue = new ModelComments();
+        whereValue.setCommentno(comment.getCommentno());
+        
         return boardsvr.updateComment( setValue, whereValue );
     }
 
-    @RequestMapping(value = "/deletecomment", method = {RequestMethod.GET, RequestMethod.POST} )
+    @RequestMapping(value = "/deletecomment", method = {RequestMethod.POST} )
     @ResponseBody
     public int deleteComment( @RequestBody ModelComments comment) {
         logger.info("/rest/deleteComment");            

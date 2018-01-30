@@ -10,24 +10,39 @@
     <meta name="Keywords" content="게시판 새글쓰기" />
     <meta name="Description" content="게시판 새글쓰기" />
     
-    <title>${boardNm }</title>
+    <title>${boardnm }</title>
     
     <link rel="stylesheet" href="/resources/css/screen.css" type="text/css" media="screen" />
-   
+    <script src="/resources/js/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function(event){
+        	$('#golist').click(function(event){
+        		location.href = "/board/articlelist/${boardcd}?searchWord=${searchWord}&curPage=${curPage}";
+        	})
+        });
+    </script>
+
 </head>
 <body>
 
 	<div id="wrap">
+    <div id="header">
+        <%@ include file="../inc/header.jsp" %>
+    </div>
 
+    <div id="main-menu">
+        <%@ include file="../inc/main-menu.jsp" %>
+    </div>  
+    
 		<div id="container">
 			<div id="content" style="min-height: 800px;">
 				<div id="url-navi">BBS</div>
 
 				<!-- 본문 시작 -->
-				<h1>${boardNm }</h1>
+				<h1>${boardnm }</h1>
 				<div id="bbs">
 					<h2>글쓰기</h2>
-					<form id="writeForm" action="articlewrite" method="post" enctype="multipart/form-data" onsubmit="return check()">
+					<form id="writeForm" action="/board/articlewrite" method="post" enctype="multipart/form-data" onsubmit="return check()">
 						<p style="margin: 0; padding: 0;">
 							<input type="hidden" name="boardcd" value="${boardcd }" />
 						</p>
@@ -48,10 +63,8 @@
 						</table>
 						<div style="text-align: center; padding-bottom: 15px;">
 							<input type="submit" value="전송" />
-							<c:if test="${!empty articleno }">
-								<input type="button" value="상세보기" onclick="goView()" />
-							</c:if>
-							<input type="button" value="목록" onclick="goList()" />
+
+							<input type="button" value="목록" id="golist()" />
 						</div>
 					</form>
 				</div>
@@ -62,7 +75,17 @@
             
 		</div>
 		<!--  container 끝 -->
+    <div id="sidebar">
+        <%@ include file="bbs-menu.jsp" %>
+    </div>
+    
+    <div id="extra">
+        <%@ include file="../inc/extra.jsp" %>
+    </div>
 
+    <div id="footer">
+        <%@ include file="../inc/footer.jsp" %>
+    </div>  
 
 	</div>
 

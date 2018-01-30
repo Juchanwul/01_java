@@ -24,26 +24,27 @@
                 window.location.href = '/board/boardmodify?boardcd=${board.boardcd }';
             } );
             $('.boarddelete').click( function(event) { 
-            	// form 태그 생성
-            	var f = document.createElement('form');
             	
-                f.setAttribute('method', 'post');
-                f.setAttribute('action', '/board/boarddelete');
-                f.setAttribute('enctype', 'application/x-www-form-urlencoded');
-            	            	
-            	// input 태그 생성
-            	var i = document.createElement('input');
+            	// form 태그 생성, 속성 설정
+            	var f = document.createElement( 'form' );             	
+            	f.setAttribute('method', 'post');
+            	f.setAttribute('action', '/board/boarddelete');
+            	f.setAttribute('enctype', 'application/x-www-form-urlencoded' );
             	
+            	// input 태그 생성, 속성 설정
+            	var i = document.createElement( 'input' );            	
             	i.setAttribute('type', 'text');
             	i.setAttribute('name', 'boardcd');
-            	i.setAttribute('value', '${board.boardcd}');
+            	i.setAttribute('value', '${board.boardcd }')
             	
-            	f.appendChild(i); // input 태그를 form에 붙인다.
-            	
-            	// form 태그 submit
-            	document.getElementsByTagName('body')[0].appendChild(f);
-            	f.submit();           	
-            	
+            	// input 태그를 form 태그에 속하게 한다.
+            	f.appendChild( i );
+            	   
+            	// form 을 body에 붙이기
+            	document.body.appendChild(f);
+
+                // form 태그 전송 
+            	f.submit();            	
             } );  
         });
     </script>
@@ -103,7 +104,7 @@
     <!--  container 끝 -->
   
     <div id="sidebar">
-        <%@ include file="../inc/bbs-menu.jsp" %>
+        <%@ include file="bbs-menu.jsp" %>
     </div>
     
     <div id="extra">

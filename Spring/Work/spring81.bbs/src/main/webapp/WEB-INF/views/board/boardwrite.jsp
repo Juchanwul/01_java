@@ -15,10 +15,10 @@
 
     <link rel="stylesheet" href="/resources/css/screen.css" type="text/css" media="screen" />
     <style>
-    #content { min-height: 800px; }
-    p { margin: 0; padding: 0; }
-    form div {text-align: left; padding-bottom: 15px; }
-</style>    
+        #content { min-height: 800px; }
+        p { margin: 0; padding: 0; }
+        form div {text-align: left; padding-bottom: 15px; }
+    </style>    
     
 </head>
 <body>
@@ -26,7 +26,7 @@
 <div id="wrap">
 
     <div id="header">
-            <%@ include file="../inc/header.jsp" %>
+        <%@ include file="../inc/header.jsp" %>
     </div>
 
     <div id="main-menu">
@@ -76,7 +76,7 @@
     </div> <!--  container 끝 -->
     
     <div id="sidebar">
-        <%@ include file="../inc/bbs-menu.jsp" %>
+        <%@ include file="bbs-menu.jsp" %>
     </div>
     
     <div id="extra">

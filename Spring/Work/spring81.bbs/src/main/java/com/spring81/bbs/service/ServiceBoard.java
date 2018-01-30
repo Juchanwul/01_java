@@ -112,11 +112,11 @@ public class ServiceBoard implements IServiceBoard {
     }
 
     @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) {
+    public List<ModelBoard> getBoardPaging(String searchWord, int start, int end) {
         
         List<ModelBoard> result = null;
         try {
-            result = daoboard.getBoardPaging(boardcd, searchWord, start, end);
+            result = daoboard.getBoardPaging(searchWord, start, end);
         } catch (Exception e) {
             logger.error("getBoardPaging  " + e.getMessage() );
         }
@@ -165,8 +165,8 @@ public class ServiceBoard implements IServiceBoard {
 
     @Override
     public ModelArticle getArticle(int articleno) {
-        /*
-         * ModelArticle result = null;
+        
+        ModelArticle result = null;
         try {
             // 상세보기를 할때마다 페이지 조회수를 1 증가 시키기 위해서.
             // 하단에 목록에서 조회수를 제대로 보기위해서는
@@ -179,8 +179,6 @@ public class ServiceBoard implements IServiceBoard {
         }
         
         return result;
-        */
-        throw new NotImplementedException("transArticle 메서드를 사용하시오");
     }
 
     @Override
@@ -368,7 +366,7 @@ public class ServiceBoard implements IServiceBoard {
 
     @Override
     public ModelArticle transArticle(int articleno) {
-        
+
         ModelArticle result = null;
         try {
             // 상세보기를 할때마다 페이지 조회수를 1 증가 시키기 위해서.
@@ -378,7 +376,30 @@ public class ServiceBoard implements IServiceBoard {
                      daoboard.increaseHit( articleno );
             result = daoboard.getArticle ( articleno );
         } catch (Exception e) {
-            logger.error("getArticle  " + e.getMessage() );
+            logger.error("transArticle  " + e.getMessage() );
+        }
+        
+        return result;
+    }
+
+    @Override
+    public int transDeleteArticle(int articleno) {
+        
+        int result = -1;
+        
+        // transection을 이용하여 삭제를 묶는 것이 좋다.
+        // tb_bbs_attachfile, tb_bbs_comment, tb_bbs_article
+        
+        try {
+            ModelAttachFile attachFile = new ModelAttachFile();
+            attachFile.setArticleno(articleno);
+            daoboard.deleteAttachFile(attachFile);
+            
+            daoboard.deleteComment(new ModelComments(articleno));
+            daoboard.deleteArticle(new ModelArticle(articleno));
+            result = 1;
+        } catch (Exception e) {
+            logger.error("transDeleteArticle" + e.getMessage() );
         }
         
         return result;

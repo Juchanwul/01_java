@@ -1,6 +1,8 @@
 package com.spring99.exam;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -21,13 +23,21 @@ public class DaoPhone implements IDaoPhone {
     }
 
     @Override
-    public List<ModelPhone> getPhoneList() {
-   
-        return session.selectList("mapper.getPhoneList");
+    public List<ModelPhone> getPhoneList(int start, int end) {
+        Map<String, Integer> map = new HashMap();
+        map.put("start", start);
+        map.put("end", end);
+        return session.selectList("mapperPhone.getPhoneList", map);
     }
 
     @Override
     public int insertPhone(ModelPhone phone) {
         return session.insert("mapperPhone.insertPhone", phone);
+    }
+
+    @Override
+    public int getPhoneTotalRecord() {
+        
+        return session.selectOne("mapperPhone.getPhoneTotalRecord");
     }
 }
